@@ -14,7 +14,7 @@ st.set_page_config(
     page_title="Calculadora Python",
     page_icon="🔢",
     layout="centered",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
 # CSS personalizado com cores pastéis
@@ -26,12 +26,26 @@ st.markdown("""
     .stApp {
         background: linear-gradient(135deg, #ffeef8 0%, #e0f2fe 50%, #f0fdf4 100%);
     }
-    h1 {
-        color: #6b73ff;
+    h1, .main h1, .stApp h1, [data-testid="stMarkdownContainer"] h1 {
+        color: #1f879c !important;
         text-align: center;
         font-size: 3rem;
         margin-bottom: 0.5rem;
-        text-shadow: 2px 2px 4px rgba(107, 115, 255, 0.2);
+        text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.8), 
+                     -1px -1px 2px rgba(0, 0, 0, 0.3),
+                     1px 1px 2px rgba(255, 255, 255, 0.6);
+    }
+    h2, h3, .main h2, .main h3, .stApp h2, .stApp h3, [data-testid="stMarkdownContainer"] h2, [data-testid="stMarkdownContainer"] h3 {
+        color: #1f879c !important;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7),
+                     -1px -1px 1px rgba(0, 0, 0, 0.2),
+                     1px 1px 1px rgba(255, 255, 255, 0.5);
+    }
+    label {
+        color: #34cceb !important;
+        font-weight: 500;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6),
+                     -0.5px -0.5px 1px rgba(0, 0, 0, 0.2);
     }
     .stButton>button {
         background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
@@ -66,8 +80,8 @@ st.markdown("""
 
 
 # Título principal
-st.markdown("<h1>🔢 Calculadora Python</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #64748b; font-size: 1.2rem; margin-bottom: 2rem;'>Uma calculadora completa e amigável para todas as suas necessidades matemáticas</p>", unsafe_allow_html=True)
+st.markdown("<h1 style='color: #1f879c !important; text-align: center; font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.8), -1px -1px 2px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(255, 255, 255, 0.6);'>🔢 Calculadora Python</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #34cceb; font-size: 1.2rem; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>Uma calculadora completa e amigável para todas as suas necessidades matemáticas</p>", unsafe_allow_html=True)
 
 
 # Sidebar para seleção de operação
@@ -113,7 +127,7 @@ with container:
     
     # Adição
     if operacao == "➕ Adição":
-        st.subheader("➕ Adição")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>➕ Adição</h2>", unsafe_allow_html=True)
         col1, col2 = st.columns(2)
         with col1:
             num1 = st.number_input("Primeiro número", value=0.0, step=0.1, key="add1")
@@ -126,7 +140,7 @@ with container:
     
     # Subtração
     elif operacao == "➖ Subtração":
-        st.subheader("➖ Subtração")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>➖ Subtração</h2>", unsafe_allow_html=True)
         col1, col2 = st.columns(2)
         with col1:
             num1 = st.number_input("Minuendo", value=0.0, step=0.1, key="sub1")
@@ -139,7 +153,7 @@ with container:
     
     # Multiplicação
     elif operacao == "✖️ Multiplicação":
-        st.subheader("✖️ Multiplicação")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>✖️ Multiplicação</h2>", unsafe_allow_html=True)
         col1, col2 = st.columns(2)
         with col1:
             num1 = st.number_input("Primeiro número", value=0.0, step=0.1, key="mult1")
@@ -152,7 +166,7 @@ with container:
     
     # Divisão
     elif operacao == "➗ Divisão":
-        st.subheader("➗ Divisão")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>➗ Divisão</h2>", unsafe_allow_html=True)
         col1, col2 = st.columns(2)
         with col1:
             num1 = st.number_input("Dividendo", value=0.0, step=0.1, key="div1")
@@ -168,7 +182,7 @@ with container:
     
     # Potenciação
     elif operacao == "🔺 Potenciação":
-        st.subheader("🔺 Potenciação")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>🔺 Potenciação</h2>", unsafe_allow_html=True)
         col1, col2 = st.columns(2)
         with col1:
             base = st.number_input("Base", value=0.0, step=0.1, key="pot_base")
@@ -181,7 +195,7 @@ with container:
     
     # Raiz Quadrada
     elif operacao == "√ Raiz Quadrada":
-        st.subheader("√ Raiz Quadrada")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>√ Raiz Quadrada</h2>", unsafe_allow_html=True)
         numero = st.number_input("Número", value=0.0, min_value=0.0, step=0.1, key="sqrt")
         
         if st.button("Calcular", key="btn_sqrt"):
@@ -193,7 +207,7 @@ with container:
     
     # Raiz Cúbica
     elif operacao == "∛ Raiz Cúbica":
-        st.subheader("∛ Raiz Cúbica")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>∛ Raiz Cúbica</h2>", unsafe_allow_html=True)
         numero = st.number_input("Número", value=0.0, step=0.1, key="cbrt")
         
         if st.button("Calcular", key="btn_cbrt"):
@@ -202,7 +216,7 @@ with container:
     
     # Raiz N-ésima
     elif operacao == "ⁿ√ Raiz N-ésima":
-        st.subheader("ⁿ√ Raiz N-ésima")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>ⁿ√ Raiz N-ésima</h2>", unsafe_allow_html=True)
         col1, col2 = st.columns(2)
         with col1:
             numero = st.number_input("Número", value=0.0, step=0.1, key="nroot_num")
@@ -218,7 +232,7 @@ with container:
     
     # Módulo
     elif operacao == "📊 Módulo":
-        st.subheader("📊 Módulo (Resto da Divisão)")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>📊 Módulo (Resto da Divisão)</h2>", unsafe_allow_html=True)
         col1, col2 = st.columns(2)
         with col1:
             num1 = st.number_input("Primeiro número", value=0.0, step=0.1, key="mod1")
@@ -234,7 +248,7 @@ with container:
     
     # Logaritmo Natural
     elif operacao == "📈 Logaritmo Natural":
-        st.subheader("📈 Logaritmo Natural (ln)")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>📈 Logaritmo Natural (ln)</h2>", unsafe_allow_html=True)
         numero = st.number_input("Número", value=1.0, min_value=0.0001, step=0.1, key="ln")
         
         if st.button("Calcular", key="btn_ln"):
@@ -246,7 +260,7 @@ with container:
     
     # Logaritmo Base 10
     elif operacao == "📉 Logaritmo Base 10":
-        st.subheader("📉 Logaritmo na Base 10 (log)")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>📉 Logaritmo na Base 10 (log)</h2>", unsafe_allow_html=True)
         numero = st.number_input("Número", value=1.0, min_value=0.0001, step=0.1, key="log10")
         
         if st.button("Calcular", key="btn_log10"):
@@ -258,7 +272,7 @@ with container:
     
     # Seno
     elif operacao == "📐 Seno":
-        st.subheader("📐 Seno")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>📐 Seno</h2>", unsafe_allow_html=True)
         st.info("ℹ️ Nota: O ângulo deve ser em radianos. Para converter graus em radianos: radianos = graus × π / 180")
         angulo = st.number_input("Ângulo (em radianos)", value=0.0, step=0.1, key="sin")
         
@@ -268,7 +282,7 @@ with container:
     
     # Cosseno
     elif operacao == "📐 Cosseno":
-        st.subheader("📐 Cosseno")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>📐 Cosseno</h2>", unsafe_allow_html=True)
         st.info("ℹ️ Nota: O ângulo deve ser em radianos. Para converter graus em radianos: radianos = graus × π / 180")
         angulo = st.number_input("Ângulo (em radianos)", value=0.0, step=0.1, key="cos")
         
@@ -278,7 +292,7 @@ with container:
     
     # Tangente
     elif operacao == "📐 Tangente":
-        st.subheader("📐 Tangente")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>📐 Tangente</h2>", unsafe_allow_html=True)
         st.info("ℹ️ Nota: O ângulo deve ser em radianos. Para converter graus em radianos: radianos = graus × π / 180")
         angulo = st.number_input("Ângulo (em radianos)", value=0.0, step=0.1, key="tan")
         
@@ -288,7 +302,7 @@ with container:
     
     # Fatorial
     elif operacao == "❗ Fatorial":
-        st.subheader("❗ Fatorial")
+        st.markdown("<h2 style='color: #1f879c !important; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.5);'>❗ Fatorial</h2>", unsafe_allow_html=True)
         numero = st.number_input("Número inteiro não negativo", value=0, min_value=0, max_value=170, step=1, key="fact")
         
         if st.button("Calcular", key="btn_fact"):
